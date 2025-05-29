@@ -4,43 +4,43 @@ import csv
 #Veidoju klasi Persona un Lietotajs, kas mantos no Personas (backend)
 class Persona:
     def __init__(self,vards,uzvards,vecums,epasts):
-        self.__vards=vards
-        self.__uzvards=uzvards
-        self.__vecums=vecums
-        self.__adrese=epasts
+        self._vards=vards
+        self._uzvards=uzvards
+        self._vecums=vecums
+        self._adrese=epasts
     def izvade(self):
-        if self.__vecums<18:
+        if self._vecums<18:
             return f"Persona nav pilngadīgs"
         else:
-            return f"Sauc: {self.__vards} {self.__uzvards},\nVecums: {self.__vecums}, Epasts: {self.__adrese}"
+            return f"Sauc: {self._vards} {self._uzvards},\nVecums: {self._vecums}, Epasts: {self._adrese}"
     def saglaba(self):
-        if self.__vecums<18:
+        if self._vecums<18:
             messagebox.showerror("Nepilngadīgs","Persona nav pilngadīga!")
         else:
             with open("personas.csv", mode="a",newline="",encoding="utf-8") as file:
                 writer=csv.writer(file)
-                writer.writerow([self.__vards,self.__uzvards,self.__vecums,self.__adrese])
+                writer.writerow([self._vards,self._uzvards,self._vecums,self._adrese])
 
 class Lietotajs(Persona):
     def __init__(self,vards,uzvards,vecums,epasts,lietotajvards):
         super().__init__(vards,uzvards,vecums,epasts)
         self.lietotajvards=lietotajvards
     def izvade(self):
-        if self.__vecums<18:
+        if self._vecums<18:
             return f"Persona nav pilngadīgs"
         else:
             return super().izvade()+f",\nLietotajvards: {self.lietotajvards}"
     def saglaba(self):
-        if self.__vecums<18:
+        if self._vecums<18:
             messagebox.showerror("Nepilngadīgs","Lietotajs nav pilngadīgs!")
         else:
             with open("lietotaji.csv", mode="a",newline="",encoding="utf-8") as file:
                 writer=csv.writer(file)
-                writer.writerow([self.__vards,self.__uzvards,self.__vecums,self.__adrese,self.lietotajvards])
+                writer.writerow([self._vards,self._uzvards,self._vecums,self._adrese,self.lietotajvards])
 
 #Veidoju 
-pers=Persona("Jānis","Bērziņš",18,"janisberzins@epasts.lv")
-usr=Lietotajs("Mihails","Žilins",18,"mzilin729@gmail.com","Maikus")
+pers=Persona(vards="Jānis",uzvards="Bērziņš",vecums=int(input("Ievādi persona vēcumu: ")),epasts="janisberzins@epasts.lv")
+usr=Lietotajs(vards="Mihails",uzvards="Žilins",vecums=int(input(f"Ievādi lietotaja vēcumu: ")),epasts="mzilin729@gmail.com",lietotajvards="Maikus")
 
 #Veidoju GUI (frontend)
 gui=Tk()
