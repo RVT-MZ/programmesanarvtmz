@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import *
+from tkinter import Tk,Label,Button,Entry,messagebox #!!!Uzskaitu visas funkcijas, jo pretējā gadījumā messagebox nedarbosies!!!
 import csv
 
 #Veidoju klasi Persona un Lietotajs, kas mantos no Personas (backend)
