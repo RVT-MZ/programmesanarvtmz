@@ -18,16 +18,16 @@ def proj_auto_id():
     return f"P{len(cur.fetchall())+1}" #izvada ID
 
 print("IEVĀDE") #Lai lietotajam būt saprotamāk
-print("DARBINIEKI")
+print(f"DARBINIEKI {darb_auto_id()}")
 #cur.execute=ievāde komandu
 #db.commit()=izveidot komandu
-cur.execute('''INSERT or IGNORE INTO Darbinieki VALUES(?,?,?,?);''',(print(darb_auto_id()),input("Vards: "),input("Amats: "),input("Alga: ")))
+cur.execute('''INSERT or IGNORE INTO Darbinieki VALUES(?,?,?,?);''',(darb_auto_id()),input("Vards: "),input("Amats: "),input("Alga: ")))
 db.commit()
-print("NODAĻA")
-cur.execute('''INSERT or IGNORE INTO Nodala VALUES(?,?,?);''',(print(nod_auto_id()),input("Nodaļa nosaukums: "),input("Vaditajs: ")))
+print(f"NODAĻA {nod_auto_id()}")
+cur.execute('''INSERT or IGNORE INTO Nodala VALUES(?,?,?);''',(nod_auto_id(),input("Nodaļa nosaukums: "),input("Vaditajs: ")))
 db.commit()
-print("PROJEKTI")
-cur.execute('''INSERT or IGNORE INTO Projekti VALUES(?,?,?,?,?,?);''',(print(proj_auto_id()),input("Nosaukums: "),input("Budžets: "),input("Termiņš(DD.MM.YYYY): "),input("Darbinieka ID: "),input("Nodaļa ID: ")))
+print(f"PROJEKTI {proj_auto_id()}")
+cur.execute('''INSERT or IGNORE INTO Projekti VALUES(?,?,?,?,?,?);''',(proj_auto_id(),input("Nosaukums: "),input("Budžets: "),input("Termiņš(DD.MM.YYYY): "),input("Darbinieka ID: "),input("Nodaļa ID: ")))
 db.commit()
 
 #2. [...] atlasīt nepieciešamo informāciju
