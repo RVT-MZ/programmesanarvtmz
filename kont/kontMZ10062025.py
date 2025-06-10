@@ -27,7 +27,7 @@ print("NODAĻA")
 cur.execute('''INSERT or IGNORE INTO Nodala VALUES(?,?,?);''',(print(nod_auto_id()),input("Nodaļa nosaukums: "),input("Vaditajs: ")))
 db.commit()
 print("PROJEKTI")
-cur.execute('''INSERT or IGNORE INTO Projekti VALUES(?,?,?,?,?,?);''',print((proj_auto_id()),input("Nosaukums: "),input("Budžets: "),input("Termiņš(DD.MM.YYYY): "),input("Darbinieka ID: "),input("Nodaļa ID: ")))
+cur.execute('''INSERT or IGNORE INTO Projekti VALUES(?,?,?,?,?,?);''',(print(proj_auto_id()),input("Nosaukums: "),input("Budžets: "),input("Termiņš(DD.MM.YYYY): "),input("Darbinieka ID: "),input("Nodaļa ID: ")))
 db.commit()
 
 #2. [...] atlasīt nepieciešamo informāciju
