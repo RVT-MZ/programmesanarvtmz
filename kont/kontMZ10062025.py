@@ -43,7 +43,7 @@ print(cur.fetchall())#izvade izdaritu komandu
 
 #3. [...] saglabā to csv datnē [...]
 
-with open("tehno_vards.csv","w") as table: #savienojas ar tabulu
+with open("tehno_vards.csv","a") as table: #savienojas ar tabulu
     w=csv.writer(table) #izveidoju mainīgu kā ierakstītajs
     cur.execute('''SELECT count(Budzets) FROM Projekti;''') #izpīldoju komandu sql
     count=(cur.fetchall()) #ierākstu atbīlde mainigā
